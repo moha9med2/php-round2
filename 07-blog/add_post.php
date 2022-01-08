@@ -7,6 +7,7 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $title = $_POST['title'];
+    $title = htmlspecialchars(trim($title));
     $content = $_POST['content'];
     $image_name = $_FILES['image']['name'];
     $image_tmp = $_FILES['image']['tmp_name'];
@@ -15,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $q_id = "SELECT id from users where email = '{$_SESSION['user_email']}' ";
     $r_id = mysqli_query($conn, $q_id);
     $user_id = mysqli_fetch_assoc($r_id)['id'];
+
 
 
     $query_insert = "INSERT INTO posts 
@@ -67,7 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input type="text" name="title" placeholder="Post Title" class="form-control my-3">
                     <textarea type="textarea" name="content" placeholder="Post content" rows="7" class="form-control my-3"></textarea>
                     <input type="file" name="image" class="form-control my-3">
-                    <input type="text" name="image2" class="form-control my-3">
                     <button type="submit" class="btn btn-primary">Publish</button>
                 </form>
             </div>
