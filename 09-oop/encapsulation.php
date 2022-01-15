@@ -14,10 +14,18 @@ class a
 
 class b extends a
 {
-    function p(){
-        return $this->x;
+    private $host = 'localhost';
+    // new mysqli($host, '', '');
+    // private $y = 'y';
+    function connect($par){
+        return $this->host;
+    }
+
+    function connect2($par){
+        return $this->host;
     }
 }
 
 $ob = new b;
-echo $ob->x;
+// $ob->y = 'y value';
+echo $ob->p('ay 7aga');

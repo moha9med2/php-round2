@@ -47,4 +47,16 @@ $ob1 = new human();
 
 // echo $ob1->name;
 // echo "<br>";
-echo $ob1->calcAge();
+// echo $ob1->calcAge();
+
+
+
+class route{
+
+    static function get($x,$y){
+
+        return $x*$y;
+    }
+}
+
+echo route::get('/about',6);
