@@ -11,44 +11,25 @@ home page
 @section('body')
 <!-- Main Content-->
 
-{{$title}}
-
-@foreach($arr as $item)
-{{$item}}
-@endforeach
-
-
-
-
-
-
 <div class="container px-4 ">
     <div class="row gx-1 justify-content-center">
-        <?php //while ($row = mysqli_fetch_assoc($result)) { 
-        ?>
-
+        @foreach($posts as $post)
         <div class="col-md-4">
             <!-- Post preview-->
             <div class="post-preview">
-                <a href="post.php">
-                    <h2 class="post-title"><?php //echo $row['title'] 
-                                            ?></h2>
-                    <img src="assets/posts/<?php //echo $row['image'] 
-                                            ?>" width="100">
+                <a href="{{route('single',$post->id)}}">
+                    <h2 class="post-title">{{$post->title}}</h2>
+                    <img src="assets/posts/{{$post->image}}" width="100">
                 </a>
                 <p class="post-meta">
                     Posted by
-                    <a href="#!"><?php //echo $row['username'] 
-                                    ?></a>
-                    <?php //echo $row['date'] 
-                    ?>
+                     {{$post->date}} 
                 </p>
             </div>
             <!-- Divider-->
             <hr class="my-4" />
         </div>
-        <? php //  } 
-        ?>
+        @endforeach
 
     </div>
 </div>

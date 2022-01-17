@@ -3,6 +3,7 @@
 use App\Http\Controllers\apiController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\pagesController;
+use App\Http\Controllers\postsController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -20,7 +21,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [pagesController::class, 'home']);
 Route::get('/home', [pagesController::class, 'home']);
-Route::get('/about', [pagesController::class, 'about']);
+Route::get('/about', [pagesController::class, 'about'])->name('about');
 Route::get('/contact', [pagesController::class, 'contact']);
 
-Route::get('testapi',[apiController::class,'api']);
+Route::get('/single/{id}', [postsController::class, 'show'])->name('single');
+
