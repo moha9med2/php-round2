@@ -25,4 +25,7 @@ Route::get('/about', [pagesController::class, 'about'])->name('about');
 Route::get('/contact', [pagesController::class, 'contact']);
 
 Route::get('/single/{id}', [postsController::class, 'show'])->name('single');
+Route::get('/store', [postsController::class, 'store']);
+Route::get('/update', [postsController::class, 'update']);
+Route::get('/delete', [postsController::class, 'delete']);
 

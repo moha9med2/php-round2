@@ -9,6 +9,9 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['title','content'];
+    public $timestamps = false;
 
-    
+    protected $primaryKey = 'EMPOLYEE_ID';
+
 }
